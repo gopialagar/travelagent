@@ -1,0 +1,29 @@
+[project]
+name = "travelagent"
+version = "0.1.0"
+description = "Agent will help to plan the trip based on the users personal preferences and users histortical behavior pattern"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.0.0",
+    "fastmcp",
+    "google-generativeai" 
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# If you also build sdists and want data included:
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    # ... other includes like README, pyproject.toml, etc.
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ailearning"]
